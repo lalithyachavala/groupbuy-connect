@@ -43,7 +43,7 @@ const AdminProducts = () => {
   const [products, setProducts] = useState(mockProducts);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [editingProduct, setEditingProduct] = useState<any>(null);
+  const [editingProduct, setEditingProduct] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -52,7 +52,7 @@ const AdminProducts = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     if (editingProduct) {
@@ -92,7 +92,7 @@ const AdminProducts = () => {
     resetForm();
   };
 
-  const handleEdit = (product: any) => {
+  const handleEdit = (product) => {
     setEditingProduct(product);
     setFormData({
       name: product.name,
@@ -103,7 +103,7 @@ const AdminProducts = () => {
     setIsEditModalOpen(true);
   };
 
-  const handleDelete = (productId: number) => {
+  const handleDelete = (productId) => {
     setProducts(prev => prev.filter(p => p.id !== productId));
     toast({
       title: "Product Deleted",
@@ -121,7 +121,7 @@ const AdminProducts = () => {
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value

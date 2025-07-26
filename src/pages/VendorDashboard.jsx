@@ -48,11 +48,11 @@ const mockMyOrders = [
 
 const VendorDashboard = () => {
   const [joinModalOpen, setJoinModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const { toast } = useToast();
 
-  const handleJoinOrder = (product: any) => {
+  const handleJoinOrder = (product) => {
     setSelectedProduct(product);
     setJoinModalOpen(true);
   };
@@ -68,7 +68,7 @@ const VendorDashboard = () => {
     setSelectedProduct(null);
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case "waiting": return "pending";
       case "confirmed": return "success";
@@ -77,7 +77,7 @@ const VendorDashboard = () => {
     }
   };
 
-  const getStatusIcon = (status: string) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case "waiting": return <Clock className="w-4 h-4" />;
       case "confirmed": return <CheckCircle className="w-4 h-4" />;
